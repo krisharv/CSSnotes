@@ -48,7 +48,7 @@
             <div class="pillRow">
                 <div class="infoPill">Unit <span>3.1 → 3.4</span></div>
                 <div class="infoPill">class <span>11 FSWD</span></div>
-                <div class="infopill">Topics <span>4 Units</span></div>
+                <div class="infoPill">Topics <span>4 Units</span></div>
             </div>
         </div>
 
@@ -73,7 +73,8 @@
                             HTML defines the structure and content (what is there), CSS defines the
                             <strong>presentation</strong> (how it looks)- colours, fonts, sizes, spacing, layouts,
                             animations and more. CSS works by <strong>selecting</strong> HTML element and applying
-                            <strong>Style rules</strong> to them</p>
+                            <strong>Style rules</strong> to them
+                        </p>
                     </div>
                     <div class="tblWrap">
                         <table>
@@ -102,6 +103,57 @@
                             priority order decides which one wins</span>
                     </div>
                 </div>
+                <div class="chunk">
+                    <h3>CSS Syntax</h3>
+                    <div class="defBox">
+                        <div class="defTag">Syntax</div>
+                        <p>A CSS Rule has two parts: a <strong>selector</strong> ( which HTML element to target) and a
+                            <strong>declaration block</strong>(what to change). Inside the block, each
+                            <strong>declaration</strong> is a property-value pair seperated by a colon, ending with a
+                            semicolon.
+                        </p>
+                    </div>
+                    <pre><span class="cm">/*Basic CSS syntax*/</span>
+<span class="sel">selector</span>{
+    <span class="prp">property</span>: <span class="val">value</span>;
+    <span class="prp">property</span>: <span class="val">value</span>;
+}
+
+<span class="cm">/* Real example */</span>
+<span class="sel">h1</span>{
+    <span class="prp">color</span>: <span class="val">red</span>;
+    <span class="prp">font-size</span>: <span class="val">32px</span>
+    <span class="prp">text-align</span>: <span class="val">center</span>;
+}</pre>
+                </div>
+
+                <div class="chunk">
+                    <h3>Three types of CSS</h3>
+                    <div class="defBox">Overview</div>
+                    <p>There are <strong>three ways</strong> to add CSS to a web page: <strong>Inline CSS</strong>
+                        (directly on an element), <strong>Internal CSS</strong> (in a <code>&lt;style&gt;</code> tag in
+                        the <code>&lt;head&gt;</code>), and <strong>External CSS</strong> (in a seperate
+                        <code>.css</code> file linked to the HTML). Each has different scope, priority, and best use
+                        situation.
+                    </p>
+                </div>
+
+                <h4>1.Inline CSS</h4>
+                <div class="defBox">
+                    <div class="defTag">Defination</div>
+                    <p><strong>Inline CSS</strong> is written directly inside an HTML element using the
+                        <strong><code>style</code>attribute</strong>. It applies styles to <strong>only that specific
+                            element</strong>. It has the <strong>highest priority</strong> - it overrides both internal
+                        and external CSS. However, it mixes content with styling and is very hard to
+                        maintain at scale.</p>
+                </div>
+                <pre><span class="cm">&lt;!-- Inline: style="" directly on the element --&gt;</span>
+<span class="tg">&lt;h1</span> <span class="at">style</span>=<span class="str">"color:blue; font-size: 32px; text-align: center;"</span><span class="tg">&gt;</span>Hello World<span class="tg">&lt;/h1&gt;</span>
+
+<span class="tg">&lt;p</span> <span class="at">style</span>=<span class="str">"color: gray; font-family: Arial; margin: 10px;"</span><span class="tg">&gt;</span>
+  Paragraph with inline styles.
+<span class="tg">&lt;/p&gt;</span></pre>
+
 
 
             </div>

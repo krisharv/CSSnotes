@@ -63,11 +63,12 @@ body::before {
 .brandArea {
     padding: 28px 24px 20px;
     border-bottom: 1px solid var(--lineClr);
+    position: sticky; top: 0; z-index: 1;
 
 }
 
 .topBadge {
-    font-family: 'space Mono', monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 9px;
     color: var(--yellowThing);
     letter-spacing: 3px;
@@ -242,6 +243,7 @@ body::before {
     border: 1px solid var(--lineClr);
     color: var(--grayTxt);
     background: var(--cardColor);
+    border-radius: 2px;
 }
 
 .infoPill span {
@@ -367,3 +369,407 @@ body::before {
 }
 
 /* sub section within units */
+
+.chunk {
+    margin-bottom: 40px;
+}
+
+.chunk h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--yellowThing);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* line after h3 cool trick */
+
+.chunk h3::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--lineClr);
+}
+
+.chunk p strong {
+    color: var(--mainTxt); font-weight: 700
+}
+
+.chunk h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--purpClr);
+    margin: 24px 0 10px;
+    letter-spacing: 0.5px
+}
+
+/* Code Blocks */
+pre {
+    background: var(--codeArea);
+    border: 1px solid var(--lineClr);
+    border-radius: 6px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.75;
+    scrollbar-width: thin;
+    scrollbar-color: var(--lineClr) transparent;
+    position: relative;
+}
+
+/*syntax higlighting spans */
+
+pre .cm {
+    color: #2d3748;
+    font-style: italic
+}
+
+/* comment */
+
+pre .sel{
+    color: var(--yellowThing)
+}
+
+/* selector */
+
+pre .prp{
+    color: #82aaff;
+}
+
+/*property */
+pre .val{
+    color: #c3e88d
+}
+
+/* value */
+pre .kw {
+    color: #c792ea;
+}
+
+/* Keyword */
+
+pre .tg{
+    color: var(--blueish);
+}
+
+/* html tag */
+pre .at {
+    color: var(--purpClr);
+}
+
+/* attribute */
+pre .str {
+    color: #c3e88d;
+}
+
+/* string */
+pre .psd {
+    color: #fbbf24;
+}
+
+pre .anim {
+    color: #4ade80;
+}
+
+/* tables */
+
+.tblWrap{
+    overflow-x: auto ;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px
+
+}
+th{
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--grayTxt);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--lineClr);
+    background: var(--cardColor);
+}
+
+td{
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--lineClr);
+    color: #718096;
+    vertical-align: top;
+    line-height: 1.55;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+td code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--yellowThing);
+    background: var(--hlight);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+tr:hover td {
+    background: var(--cardColor);
+}
+
+/* alert/callout boxes */
+
+.alertBox {
+            display: flex;
+            gap: 14px;
+            padding: 16px 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+
+.alertBox.isDanger {
+    background: rgba(248, 113, 113, 0.06);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    color: #fca5a5;
+
+}
+
+.alertBox.isSuccess {
+    background: rgba(74,222,128, 0.06);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    color: #86efac;
+}
+
+.alertBox.isInfo {
+    background: rgba(97, 218, 251, 0.06);
+    border: 1px solid rgba(97, 218, 251, 0.2);
+    color: #7dd3fc;
+}
+
+.alertBox.isYellow {
+    background: rgba(247, 201, 72, 0.06);
+    border: 1px solid rgba(247,201,72,0.2);
+    color: #fde68a;
+}
+
+.alertBox .ico{
+    font-size: 16px;
+    flex-shrink: 0;
+    line-height: 1.4
+}
+
+/* quick reference card at bottom */
+
+.refCard {
+    background: var(--card2);
+    border: 1px solid var(--lineClr);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.refCardTop {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grayTxt);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--lineClr);
+    background: var(--cardColor);
+}
+
+.refGrid {
+    padding:16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+}
+
+.refRow {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    gap: 10px;
+}
+
+.refKey {
+    font-family: 'Space Mono', monospace;
+    color: var(--yellowThing);
+    font-size: 11px;
+    flex-shrink: 0
+}
+
+.refDesc {
+    color: var(--grayTxt);
+    font-size: 11px;
+    text-align: right;
+}
+
+/* inline code tag style */
+code{
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--yellowThing);
+    background: var(--hlight);
+    padding: 1px 5px;
+    border-radius: 2px;
+}
+
+/* side by side comparism style */
+
+.sideBySide{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.sideBox{
+    background: var(--codeArea);
+    border: 1px solid var(--lineClr);
+    border-radius: 6px;
+    overflow: hidden;
+
+}
+
+.sideBoxLabel{
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--lineClr);
+}
+
+.sideBox.greenBox .sideBoxLabel {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.05)
+
+}
+
+.sideBox.yellowBox .sideBoxLabel {
+    color: var(--yellowThing);
+    background: rgba(247, 201, 72, 0.05);
+}
+
+.sideBox.redBox .sideBoxLabel {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.05)
+}
+
+.sideBox pre {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    font-size: 12px
+}
+
+/* scroll progress bar at top */
+.scrollBar {
+    position: fixed;
+    top: 0;
+    left: 264px;
+    right: 0;
+    height: 2px;
+    background: var(--lineClr);
+    z-index: 200
+}
+
+.scrollFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--yellowThing), var(--purpClr));
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* back to top button */
+#goTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--cardColor);
+    border: 1px solid var(--lineClr);
+    color: var(--grayTxt);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#goTopBtn.show{
+    opacity: 1;
+    pointer-events: all;
+}
+
+#goTopBtn:hover {
+    color: var(--yellowThing);
+    border-color: var(--yellowThing);
+}
+
+ /* scrollbar style */
+
+ ::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+ }
+
+ ::-webkit-scrollbar-track{
+    background: transparent;
+ }
+
+ ::-webkit-scrollbar-thumb{
+    background: var(--lineClr);
+    border-radius : 3px
+ }
+
+ /* mobile - hide sidebar and fix padding */
+ /* TODO: make a proper hamburger menu later */
+ @media(max-width: 900px) {
+    .leftPanel{
+        display: none;
+    }
+    .rightSide{
+        margin-left: 0
+    }
+    .scrollBar{
+        left: 0
+    }
+    .heroBanner{
+        padding: 32px 24px;
+    }
+
+    .pageBody{
+        padding: 32px 24px
+    }
+
+    .heroBanner h2{
+        font-size: 32px;
+
+    }
+    .sideBySide{
+        grid-template-columns: 1fr;
+    }
+
+    .refGrid{
+        grid-template-columns: 1fr;
+    }
+ }
