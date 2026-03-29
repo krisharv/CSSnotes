@@ -1,0 +1,21 @@
+/* Variable - ill add more later */
+        :root{
+            --darkbg: #080b12;
+            --cardColor: #0e1220;
+            --card2: #141828;
+            --lineClr: #1a2035;
+            --yellowThing: #f7c948;
+            --purpClr: #a78bfa;
+            --blueish : #61dafb;
+            --successGreen: #4ade80;
+            --errorRed: #f87171;
+            --mainTxt: #e2e8f0;
+            --grayTxt: #4a5568;
+            --codeArea: #070a10;
+            --hlight: rgba(247,201,72,0.07);
+        }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
