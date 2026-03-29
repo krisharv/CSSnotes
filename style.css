@@ -1,52 +1,55 @@
 /* Variable - ill add more later */
-        :root{
-            --darkbg: #080b12;
-            --cardColor: #0e1220;
-            --card2: #141828;
-            --lineClr: #1a2035;
-            --yellowThing: #f7c948;
-            --purpClr: #a78bfa;
-            --blueish : #61dafb;
-            --successGreen: #4ade80;
-            --errorRed: #f87171;
-            --mainTxt: #e2e8f0;
-            --grayTxt: #4a5568;
-            --codeArea: #070a10;
-            --hlight: rgba(247,201,72,0.07);
-        }
-*{
+:root {
+    --darkbg: #080b12;
+    --cardColor: #0e1220;
+    --card2: #141828;
+    --lineClr: #1a2035;
+    --yellowThing: #f7c948;
+    --purpClr: #a78bfa;
+    --blueish: #61dafb;
+    --successGreen: #4ade80;
+    --errorRed: #f87171;
+    --mainTxt: #e2e8f0;
+    --grayTxt: #4a5568;
+    --codeArea: #070a10;
+    --hlight: rgba(247, 201, 72, 0.07);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
-  font-family: 'Syne', sans-serif;
-  background: var(--darkbg);
-  color: var(--mainTxt);
-  min-height: 100vh;
-  overflow-x: hidden;
+body {
+    font-family: 'Syne', sans-serif;
+    background: var(--darkbg);
+    color: var(--mainTxt);
+    min-height: 100vh;
+    overflow-x: hidden;
 
 }
 
 /* noise texture thing copied from claude lol */
-body::before{
+body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index:  9999;
+    z-index: 9999;
     opacity: 0.4;
 }
 
 .leftPanel {
     position: fixed;
-    left: 0; top: 0; bottom: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
     width: 264px;
     background: var(--cardColor);
     border-right: 1px solid var(--lineClr);
@@ -56,11 +59,13 @@ body::before{
     scrollbar-width: thin;
     scrollbar-color: var(--lineClr) transparent;
 }
-.brandArea{
+
+.brandArea {
     padding: 28px 24px 20px;
     border-bottom: 1px solid var(--lineClr);
 
 }
+
 .topBadge {
     font-family: 'space Mono', monospace;
     font-size: 9px;
@@ -71,13 +76,15 @@ body::before{
     display: block;
 
 }
-.brandArea h1{
-   font-size: 17px;
-   font-weight: 800;
-   color: var(--mainTxt);
-   line-height: 1.3;
+
+.brandArea h1 {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--mainTxt);
+    line-height: 1.3;
 }
-.brandArea h1 span{
+
+.brandArea h1 span {
     color: var(--yellowThing);
 
 }
@@ -90,11 +97,20 @@ body::before{
 }
 
 @keyframes breathe {
-    0%, 100% {opacity:1}
-    50%{opacity: .5}
+
+    0%,
+    100% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: .5
+    }
 }
 
-.navGroup { padding: 16px 0 4px;}
+.navGroup {
+    padding: 16px 0 4px;
+}
 
 .navGroupLabel {
     font-family: 'Space Mono', monospace;
@@ -119,10 +135,17 @@ body::before{
     cursor: pointer;
 }
 
-.sideLink:hover{ color: var(--yellowThing); background: var(--hlight);}
-.sideLink.activeLink{ color:var(--yellowThing); background: var(--hlight);}
+.sideLink:hover {
+    color: var(--yellowThing);
+    background: var(--hlight);
+}
 
-.linkNum{
+.sideLink.activeLink {
+    color: var(--yellowThing);
+    background: var(--hlight);
+}
+
+.linkNum {
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     color: var(--grayTxt);
@@ -130,11 +153,217 @@ body::before{
     flex-shrink: 0;
 }
 
-.sideLink:hover .linkNum {color: var(--yellowThing);}
-.sideLink.activeLink .linkNum {color: var(--yellowThing);}
+.sideLink:hover .linkNum {
+    color: var(--yellowThing);
+}
 
-.divLine {margin: 8px 24px; border: none; border-top: 1px solid var(--lineClr);}
+.sideLink.activeLink .linkNum {
+    color: var(--yellowThing);
+}
+
+.divLine {
+    margin: 8px 24px;
+    border: none;
+    border-top: 1px solid var(--lineClr);
+}
 
 /* main content area */
-.rightSide { margin-left: 264px}
+.rightSide {
+    margin-left: 264px
+}
 
+/* top hero banner thing */
+.heroBanner {
+    padding: 80px 64px 60px;
+    border-bottom: 1px solid var(--lineClr);
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 80% 50%, rgba(247, 201, 72, 0.04) 0%, transparent 60%);
+
+}
+
+/* big text in background */
+.bgHugeText {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Space Mono', monospace;
+    font-size: 160px;
+    font-weight: 700;
+    color: var(--yellowThing);
+    opacity: 0.03;
+    pointer-events: none;
+    letter-spacing: -8px;
+}
+
+.heroSubtag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--yellowThing);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.heroSubtag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--yellowThing);
+
+}
+
+.heroBanner h2 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.heroBanner h2 span {
+    color: var(--yellowThing)
+}
+
+.pillRow {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.infoPill {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    border: 1px solid var(--lineClr);
+    color: var(--grayTxt);
+    background: var(--cardColor);
+}
+
+.infoPill span {
+    color: var(--purpClr);
+}
+
+/* content wrapper */
+.pageBody {
+    max-width: 920px;
+    padding: 60px 64px;
+}
+
+/* Each Big section */
+
+.unitBlock{
+    margin-bottom: 84px;
+
+}
+
+.unitHdr{
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--lineClr);
+}
+
+.unitNum {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--yellowThing);
+    background: var(--hlight);
+    border: 1px solid rgba(247,201,72,0.2);
+    padding: 6px 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 4px;
+
+}
+.unitHdrText h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--mainTxt);
+    margin-bottom: 8px;
+
+}
+
+.unitHdrText p {
+    font-size: 14px;
+    color: var(--grayTxt);
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Defination boxs */
+
+.defBox{
+    background: var(--cardColor);
+    border-left: 3px solid var(--yellowThing);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    border-radius: 0 4px 4px 0;
+}
+
+/* TODO: maybe make these into one clean modifiers */
+
+.defBox.isPurp {
+    border-left-color: var(--purpClr);
+
+}
+
+.defBox.isBlue {
+    border-left-color: var(--blueish);
+
+}
+
+.defBox.isGreen{
+    border-left-color: var(--successGreen);
+
+}
+.defTag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--yellowThing);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.defBox.isPurp .defTag{
+    color: var(--purpClr);
+}
+
+.defBox.isBlue .defTag {
+    color: var(--blueish);
+}
+
+.defBox.isGreen .defTag {
+    color: var(--successGreen);
+}
+
+.defBox p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--mainTxt);
+    font-weight: 400;
+}
+
+.defBox strong{
+    color: var(--yellowThing);
+    font-weight: 700;
+
+}
+.defBox.isPurp strong {
+    color: var(--purpClr)
+}
+.defBox.isBlue strong {
+    color: var(--blueish)
+}
+.defBox.isGreen strong {
+    color: var(--successGreen)
+}
+
+/* sub section within units */
