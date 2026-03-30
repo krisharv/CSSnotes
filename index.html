@@ -54,45 +54,44 @@
 
         <div class="pageBody">
 
-            <!--   subunit 3.1  -->
             <div class="unitBlock" id="s31">
                 <div class="unitHdr">
                     <div class="unitNum">3.1</div>
                     <div class="unitHdrText">
                         <h2>Introduction to CSS &amp; Types of CSS</h2>
-                        <p>What CSS is, Why we use it, and the three ways to add it to a webpage</p>
+                        <p>What CSS is, why we use it, and the three ways to add it to a webpage</p>
                     </div>
                 </div>
 
                 <div class="chunk">
-                    <h3>What is CSS</h3>
+                    <h3>What is CSS?</h3>
                     <div class="defBox">
-                        <div class="defTag">Defination</div>
+                        <div class="defTag">Definition</div>
                         <p><strong>CSS (Cascading Style Sheets)</strong> is a <strong>stylesheet language</strong> used
-                            to control the <strong>visual appearance</strong> of the HTML elements on a webpage. While
-                            HTML defines the structure and content (what is there), CSS defines the
-                            <strong>presentation</strong> (how it looks)- colours, fonts, sizes, spacing, layouts,
-                            animations and more. CSS works by <strong>selecting</strong> HTML element and applying
-                            <strong>Style rules</strong> to them
+                            to control the <strong>visual appearance</strong> of HTML elements on a web page. While HTML
+                            defines the structure and content (what is there), CSS defines the
+                            <strong>presentation</strong> (how it looks) — colours, fonts, sizes, spacing, layouts,
+                            animations and more. CSS works by <strong>selecting</strong> HTML elements and applying
+                            <strong>style rules</strong> to them.
                         </p>
                     </div>
                     <div class="tblWrap">
                         <table>
                             <tr>
-                                <th>HTML Does</th>
+                                <th>HTML does</th>
                                 <th>CSS does</th>
                             </tr>
                             <tr>
                                 <td>Defines structure (headings, paragraphs, links)</td>
-                                <td>Definess appearance (colour, font, size, layout)</td>
+                                <td>Defines appearance (colour, font, size, layout)</td>
                             </tr>
                             <tr>
-                                <td><code>&lt;h1&gt;Hello&lt;/h1&gt;</code> - puts text on page</td>
+                                <td><code>&lt;h1&gt;Hello&lt;/h1&gt;</code> — puts text on page</td>
                                 <td>Makes that h1 red, 32px, bold, centered</td>
                             </tr>
                             <tr>
                                 <td>Content skeleton</td>
-                                <td>The skin, makeup and outfit</td>
+                                <td>The skin, makeup, and outfit</td>
                             </tr>
                         </table>
                     </div>
@@ -100,64 +99,156 @@
                         <span class="ico">📌</span>
                         <span>The word <strong>"Cascading"</strong> means styles flow down from parent to child
                             elements, and when multiple rules target the same element, a <strong>specificity</strong>
-                            priority order decides which one wins</span>
+                            priority order decides which one wins.</span>
                     </div>
                 </div>
+
                 <div class="chunk">
                     <h3>CSS Syntax</h3>
                     <div class="defBox">
                         <div class="defTag">Syntax</div>
-                        <p>A CSS Rule has two parts: a <strong>selector</strong> ( which HTML element to target) and a
-                            <strong>declaration block</strong>(what to change). Inside the block, each
-                            <strong>declaration</strong> is a property-value pair seperated by a colon, ending with a
+                        <p>A CSS rule has two parts: a <strong>selector</strong> (which HTML element to target) and a
+                            <strong>declaration block</strong> (what to change). Inside the block, each
+                            <strong>declaration</strong> is a property-value pair separated by a colon, ending with a
                             semicolon.
                         </p>
                     </div>
-                    <pre><span class="cm">/*Basic CSS syntax*/</span>
-<span class="sel">selector</span>{
-    <span class="prp">property</span>: <span class="val">value</span>;
-    <span class="prp">property</span>: <span class="val">value</span>;
+                    <pre><span class="cm">/* Basic CSS syntax */</span>
+<span class="sel">selector</span> {
+  <span class="prp">property</span>: <span class="val">value</span>;
+  <span class="prp">property</span>: <span class="val">value</span>;
 }
 
 <span class="cm">/* Real example */</span>
-<span class="sel">h1</span>{
-    <span class="prp">color</span>: <span class="val">red</span>;
-    <span class="prp">font-size</span>: <span class="val">32px</span>
-    <span class="prp">text-align</span>: <span class="val">center</span>;
+<span class="sel">h1</span> {
+  <span class="prp">color</span>: <span class="val">red</span>;
+  <span class="prp">font-size</span>: <span class="val">32px</span>;
+  <span class="prp">text-align</span>: <span class="val">center</span>;
 }</pre>
                 </div>
 
                 <div class="chunk">
-                    <h3>Three types of CSS</h3>
-                    <div class="defBox">Overview</div>
-                    <p>There are <strong>three ways</strong> to add CSS to a web page: <strong>Inline CSS</strong>
-                        (directly on an element), <strong>Internal CSS</strong> (in a <code>&lt;style&gt;</code> tag in
-                        the <code>&lt;head&gt;</code>), and <strong>External CSS</strong> (in a seperate
-                        <code>.css</code> file linked to the HTML). Each has different scope, priority, and best use
-                        situation.
-                    </p>
-                </div>
+                    <h3>Three Types of CSS</h3>
+                    <div class="defBox">
+                        <div class="defTag">Overview</div>
+                        <p>There are <strong>three ways</strong> to add CSS to a web page: <strong>Inline CSS</strong>
+                            (directly on an element), <strong>Internal CSS</strong> (in a <code>&lt;style&gt;</code> tag
+                            in the <code>&lt;head&gt;</code>), and <strong>External CSS</strong> (in a separate
+                            <code>.css</code> file linked to the HTML). Each has different scope, priority, and best-use
+                            situation.
+                        </p>
+                    </div>
 
-                <h4>1.Inline CSS</h4>
-                <div class="defBox">
-                    <div class="defTag">Defination</div>
-                    <p><strong>Inline CSS</strong> is written directly inside an HTML element using the
-                        <strong><code>style</code>attribute</strong>. It applies styles to <strong>only that specific
-                            element</strong>. It has the <strong>highest priority</strong> - it overrides both internal
-                        and external CSS. However, it mixes content with styling and is very hard to
-                        maintain at scale.</p>
-                </div>
-                <pre><span class="cm">&lt;!-- Inline: style="" directly on the element --&gt;</span>
-<span class="tg">&lt;h1</span> <span class="at">style</span>=<span class="str">"color:blue; font-size: 32px; text-align: center;"</span><span class="tg">&gt;</span>Hello World<span class="tg">&lt;/h1&gt;</span>
+                    <h4>1. Inline CSS</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>Inline CSS</strong> is written directly inside an HTML element using the
+                            <strong><code>style</code> attribute</strong>. It applies styles to <strong>only that
+                                specific element</strong>. It has the <strong>highest priority</strong> — it overrides
+                            both internal and external CSS. However, it mixes content with styling and is very hard to
+                            maintain at scale.
+                        </p>
+                    </div>
+                    <pre><span class="cm">&lt;!-- Inline: style="" directly on the element --&gt;</span>
+<span class="tg">&lt;h1</span> <span class="at">style</span>=<span class="str">"color: blue; font-size: 32px; text-align: center;"</span><span class="tg">&gt;</span>Hello World<span class="tg">&lt;/h1&gt;</span>
 
 <span class="tg">&lt;p</span> <span class="at">style</span>=<span class="str">"color: gray; font-family: Arial; margin: 10px;"</span><span class="tg">&gt;</span>
   Paragraph with inline styles.
 <span class="tg">&lt;/p&gt;</span></pre>
 
+                    <h4>2. Internal CSS</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>Internal CSS</strong> is written inside a <strong><code>&lt;style&gt;</code>
+                                tag</strong> placed in the <code>&lt;head&gt;</code> section of the HTML file. It
+                            applies styles to elements <strong>throughout that single HTML page</strong>. Useful for
+                            single-page projects or page-specific styles, but cannot be shared across multiple pages.
+                        </p>
+                    </div>
+                    <pre><span class="tg">&lt;!DOCTYPE html&gt;</span>
+<span class="tg">&lt;html&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="cm">&lt;!-- Internal CSS: inside &lt;style&gt; tag in &lt;head&gt; --&gt;</span>
+  <span class="tg">&lt;style&gt;</span>
+    <span class="sel">body</span> {
+      <span class="prp">background-color</span>: <span class="val">#f0f0f0</span>;
+      <span class="prp">font-family</span>: <span class="val">Arial, sans-serif</span>;
+    }
+    <span class="sel">h1</span> { <span class="prp">color</span>: <span class="val">navy</span>; <span class="prp">text-align</span>: <span class="val">center</span>; }
+    <span class="sel">p</span>  { <span class="prp">color</span>: <span class="val">#333</span>; <span class="prp">line-height</span>: <span class="val">1.6</span>; }
+  <span class="tg">&lt;/style&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
+<span class="tg">&lt;body&gt;</span>
+  <span class="tg">&lt;h1&gt;</span>Styled with Internal CSS<span class="tg">&lt;/h1&gt;</span>
+<span class="tg">&lt;/body&gt;</span>
+<span class="tg">&lt;/html&gt;</span></pre>
 
+                    <h4>3. External CSS</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>External CSS</strong> is written in a <strong>separate <code>.css</code>
+                                file</strong> and linked to the HTML using a <code>&lt;link&gt;</code> tag in the
+                            <code>&lt;head&gt;</code>. This is the <strong>best practice and most widely used
+                                method</strong> — the same CSS file can be linked to many HTML pages, making styling
+                            consistent and easy to update. It completely separates structure (HTML) from presentation
+                            (CSS).
+                        </p>
+                    </div>
+                    <pre><span class="cm">&lt;!-- HTML file: link the external .css file --&gt;</span>
+<span class="tg">&lt;head&gt;</span>
+  <span class="tg">&lt;link</span> <span class="at">rel</span>=<span class="str">"stylesheet"</span> <span class="at">href</span>=<span class="str">"style.css"</span><span class="tg">&gt;</span>
+<span class="tg">&lt;/head&gt;</span>
 
+<span class="cm">/* Inside style.css (completely separate file) */</span>
+<span class="sel">body</span> {
+  <span class="prp">margin</span>: <span class="val">0</span>;
+  <span class="prp">font-family</span>: <span class="val">'Segoe UI', sans-serif</span>;
+  <span class="prp">background-color</span>: <span class="val">#fff</span>;
+}
+<span class="sel">h1</span> { <span class="prp">color</span>: <span class="val">purple</span>; }
+<span class="sel">p</span>  { <span class="prp">color</span>: <span class="val">#555</span>; }</pre>
+
+                    <h4>Comparison — All Three Types</h4>
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Where Written</th>
+                                <th>Scope</th>
+                                <th>Priority</th>
+                                <th>Best For</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Inline</strong></td>
+                                <td>Inside element's <code>style=""</code></td>
+                                <td>That one element only</td>
+                                <td>Highest ①</td>
+                                <td>Quick one-off overrides</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internal</strong></td>
+                                <td><code>&lt;style&gt;</code> in <code>&lt;head&gt;</code></td>
+                                <td>That single HTML page</td>
+                                <td>Medium ②</td>
+                                <td>Single-page projects</td>
+                            </tr>
+                            <tr>
+                                <td><strong>External</strong></td>
+                                <td>Separate <code>.css</code> file</td>
+                                <td>Any page that links it</td>
+                                <td>Lowest ③</td>
+                                <td>Real projects — best practice</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="alertBox isDanger">
+                        <span class="ico">⚠️</span>
+                        <span>Priority when rules conflict: <strong>Inline &gt; Internal &gt; External</strong>. Always
+                            use External CSS for real projects. Avoid inline styles — they are impossible to maintain at
+                            scale.</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
     </main>
 </body>
