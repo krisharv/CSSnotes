@@ -16,7 +16,7 @@
         <div class="scrollFill" id="sBar"></div>
     </div>
 
-    <!-- sidebar navigation -->
+    <!-- sidebar html -->
     <aside class="leftPanel">
         <div class="brandArea">
             <span class="topBadge">Class 11 · FSWD · Unit 3</span>
@@ -249,6 +249,265 @@
                     </div>
                 </div>
             </div>
+
+            <!-- unit 3.2 -->
+            <div class="unitBlock" id="s32">
+                <div class="unitHdr">
+                    <div class="unitNum">3.2</div>
+                    <div class="unitHdrText">
+                        <h2>Selectors, Properties, Values &amp; Units</h2>
+                        <p>Targeting HTML elements with precision and applying style declarations</p>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>CSS Selectors</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>A <strong>CSS selector</strong> is the part of a CSS rule that tells the browser
+                            <strong>which HTML element(s) to apply the styles to</strong>. There are many types — from
+                            targeting all elements of a type, to a specific element by its ID, to elements based on
+                            their state or their relationship to other elements.
+                        </p>
+                    </div>
+
+                    <h4>The Four Basic Selectors</h4>
+                    <pre><span class="cm">/* 1. Universal Selector — targets EVERY element */</span>
+<span class="sel">*</span> {
+  <span class="prp">margin</span>: <span class="val">0</span>;
+  <span class="prp">padding</span>: <span class="val">0</span>;
+  <span class="prp">box-sizing</span>: <span class="val">border-box</span>;
+}
+
+<span class="cm">/* 2. Element (Type) Selector — targets all tags of that type */</span>
+<span class="sel">p</span>  { <span class="prp">color</span>: <span class="val">#333</span>; }
+<span class="sel">h1</span> { <span class="prp">font-size</span>: <span class="val">40px</span>; }
+
+<span class="cm">/* 3. Class Selector — targets elements with class="box" (reusable) */</span>
+<span class="sel">.box</span> {
+  <span class="prp">background</span>: <span class="val">lightblue</span>;
+  <span class="prp">padding</span>: <span class="val">20px</span>;
+}
+
+<span class="cm">/* 4. ID Selector — targets the ONE element with id="header" (unique) */</span>
+<span class="sel">#header</span> {
+  <span class="prp">background</span>: <span class="val">navy</span>;
+  <span class="prp">color</span>: <span class="val">white</span>;
+}
+
+<span class="cm">&lt;!-- HTML to match the above --&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">class</span>=<span class="str">"box"</span><span class="tg">&gt;</span>Gets .box styles<span class="tg">&lt;/div&gt;</span>
+<span class="tg">&lt;div</span> <span class="at">id</span>=<span class="str">"header"</span><span class="tg">&gt;</span>Gets #header styles<span class="tg">&lt;/div&gt;</span></pre>
+
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>Selector</th>
+                                <th>Syntax</th>
+                                <th>Targets</th>
+                                <th>Specificity</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Universal</strong></td>
+                                <td><code>*</code></td>
+                                <td>Every element</td>
+                                <td>Lowest</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Element</strong></td>
+                                <td><code>tag</code></td>
+                                <td>All tags of that type</td>
+                                <td>Low</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Class</strong></td>
+                                <td><code>.name</code></td>
+                                <td>All elements with that class</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ID</strong></td>
+                                <td><code>#name</code></td>
+                                <td>The single element with that ID</td>
+                                <td>High</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>Combinators &amp; Advanced Selectors</h4>
+                    <pre><span class="cm">/* Grouping — same styles for multiple elements */</span>
+<span class="sel">h1, h2, h3</span> { <span class="prp">font-family</span>: <span class="val">Georgia, serif</span>; }
+
+<span class="cm">/* Descendant — p anywhere inside div (any depth) */</span>
+<span class="sel">div p</span> { <span class="prp">color</span>: <span class="val">blue</span>; }
+
+<span class="cm">/* Child — p that is DIRECT child of div only */</span>
+<span class="sel">div > p</span> { <span class="prp">font-weight</span>: <span class="val">bold</span>; }
+
+<span class="cm">/* Attribute selector */</span>
+<span class="sel">input[type="text"]</span> { <span class="prp">border</span>: <span class="val">2px solid blue</span>; }
+
+<span class="cm">/* Pseudo-class — element state */</span>
+<span class="sel">a<span class="psd">:hover</span></span>          { <span class="prp">color</span>: <span class="val">red</span>; }
+<span class="sel">li<span class="psd">:nth-child(2)</span></span>  { <span class="prp">color</span>: <span class="val">green</span>; }
+<span class="sel">p<span class="psd">:first-child</span></span>    { <span class="prp">font-weight</span>: <span class="val">bold</span>; }
+
+<span class="cm">/* Pseudo-element — part of an element */</span>
+<span class="sel">p<span class="psd">::first-letter</span></span> { <span class="prp">font-size</span>: <span class="val">2em</span>; <span class="prp">color</span>: <span class="val">red</span>; }
+<span class="sel">h1<span class="psd">::after</span></span>       { <span class="prp">content</span>: <span class="val">" ★"</span>; }</pre>
+
+                    <div class="alertBox isDanger">
+                        <span class="ico">⚠️</span>
+                        <span>IDs must be <strong>unique</strong> on a page. Classes can be reused on many elements.
+                            <strong>Specificity order:</strong> ID (#) &gt; Class (.) &gt; Element &gt; Universal (*).
+                            Higher specificity always wins.</span>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>Common CSS Properties</h3>
+                    <pre><span class="cm">/* TEXT & FONTS */</span>
+<span class="sel">.text</span> {
+  <span class="prp">color</span>: <span class="val">#333</span>;
+  <span class="prp">font-size</span>: <span class="val">18px</span>;
+  <span class="prp">font-family</span>: <span class="val">Arial, sans-serif</span>;
+  <span class="prp">font-weight</span>: <span class="val">bold</span>;           <span class="cm">/* normal | bold | 100–900 */</span>
+  <span class="prp">font-style</span>: <span class="val">italic</span>;          <span class="cm">/* normal | italic */</span>
+  <span class="prp">text-align</span>: <span class="val">center</span>;         <span class="cm">/* left | right | center | justify */</span>
+  <span class="prp">text-decoration</span>: <span class="val">underline</span>;  <span class="cm">/* none | underline | line-through */</span>
+  <span class="prp">text-transform</span>: <span class="val">uppercase</span>;  <span class="cm">/* uppercase | lowercase | capitalize */</span>
+  <span class="prp">line-height</span>: <span class="val">1.6</span>;
+  <span class="prp">letter-spacing</span>: <span class="val">2px</span>;
+}
+
+<span class="cm">/* BACKGROUND */</span>
+<span class="sel">.bg</span> {
+  <span class="prp">background-color</span>: <span class="val">#f0f0f0</span>;
+  <span class="prp">background-image</span>: <span class="val">url("bg.jpg")</span>;
+  <span class="prp">background-size</span>: <span class="val">cover</span>;         <span class="cm">/* cover | contain | 100px */</span>
+  <span class="prp">background-repeat</span>: <span class="val">no-repeat</span>;
+  <span class="prp">background-position</span>: <span class="val">center</span>;
+}
+
+<span class="cm">/* BOX MODEL */</span>
+<span class="sel">.box</span> {
+  <span class="prp">width</span>: <span class="val">300px</span>;
+  <span class="prp">height</span>: <span class="val">200px</span>;
+  <span class="prp">padding</span>: <span class="val">20px</span>;            <span class="cm">/* space INSIDE the border */</span>
+  <span class="prp">margin</span>: <span class="val">10px auto</span>;        <span class="cm">/* space OUTSIDE (auto = centre horizontally) */</span>
+  <span class="prp">border</span>: <span class="val">2px solid black</span>;
+  <span class="prp">border-radius</span>: <span class="val">8px</span>;
+  <span class="prp">box-shadow</span>: <span class="val">0 4px 12px rgba(0,0,0,0.2)</span>;
+}</pre>
+
+                    <h4>The CSS Box Model — Critical Concept</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>The <strong>CSS Box Model</strong> is the fundamental concept that every HTML element is a
+                            rectangular box with four layers: <strong>Content</strong> (actual text/image),
+                            <strong>Padding</strong> (space inside the border), <strong>Border</strong> (the line around
+                            the element), and <strong>Margin</strong> (space outside — between elements). Controlling
+                            these four layers is how you control all spacing in CSS.
+                        </p>
+                    </div>
+                    <pre><span class="cm">/*
+  ┌──────────────── MARGIN ────────────────┐
+  │  ┌────────────── BORDER ─────────────┐ │
+  │  │  ┌──────────── PADDING ─────────┐ │ │
+  │  │  │                              │ │ │
+  │  │  │         CONTENT              │ │ │
+  │  │  │     (text, image etc.)       │ │ │
+  │  │  └──────────────────────────────┘ │ │
+  │  └────────────────────────────────────┘ │
+  └──────────────────────────────────────────┘
+*/</span>
+
+<span class="cm">/* padding shorthand — clockwise from top */</span>
+<span class="prp">padding</span>: <span class="val">10px 20px 10px 20px</span>; <span class="cm">/* top right bottom left */</span>
+<span class="prp">padding</span>: <span class="val">10px 20px</span>;            <span class="cm">/* top+bottom=10, left+right=20 */</span>
+<span class="prp">padding</span>: <span class="val">10px</span>;                  <span class="cm">/* all 4 sides */</span></pre>
+                </div>
+
+                <div class="chunk">
+                    <h3>Values &amp; Units</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>CSS <strong>values</strong> are what you assign to properties — keywords, colours, or
+                            measurements. Measurements use <strong>units</strong>. Units are either
+                            <strong>absolute</strong> (fixed, don't scale) or <strong>relative</strong> (size depends on
+                            something else — parent, viewport, root font-size).
+                        </p>
+                    </div>
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>Unit</th>
+                                <th>Type</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td><code>px</code></td>
+                                <td>Absolute</td>
+                                <td>Fixed pixels on screen</td>
+                                <td><code>font-size: 16px</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>%</code></td>
+                                <td>Relative</td>
+                                <td>Percentage of parent element</td>
+                                <td><code>width: 50%</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>em</code></td>
+                                <td>Relative</td>
+                                <td>Relative to parent's font-size</td>
+                                <td><code>padding: 1.5em</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>rem</code></td>
+                                <td>Relative</td>
+                                <td>Relative to root (html) font-size — more predictable</td>
+                                <td><code>margin: 2rem</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>vw</code></td>
+                                <td>Relative</td>
+                                <td>1% of viewport width</td>
+                                <td><code>width: 100vw</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>vh</code></td>
+                                <td>Relative</td>
+                                <td>1% of viewport height</td>
+                                <td><code>height: 100vh</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>auto</code></td>
+                                <td>Keyword</td>
+                                <td>Browser calculates automatically</td>
+                                <td><code>margin: 0 auto</code></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <pre><span class="cm">/* Colour values in CSS */</span>
+<span class="prp">color</span>: <span class="val">red</span>;                      <span class="cm">/* named colour */</span>
+<span class="prp">color</span>: <span class="val">#ff0000</span>;                   <span class="cm">/* hex code */</span>
+<span class="prp">color</span>: <span class="val">#f00</span>;                      <span class="cm">/* hex shorthand */</span>
+<span class="prp">color</span>: <span class="val">rgb(255, 0, 0)</span>;            <span class="cm">/* red, green, blue (0–255) */</span>
+<span class="prp">color</span>: <span class="val">rgba(255, 0, 0, 0.5)</span>;     <span class="cm">/* RGB + alpha (0=transparent, 1=solid) */</span>
+<span class="prp">color</span>: <span class="val">hsl(0, 100%, 50%)</span>;         <span class="cm">/* hue, saturation, lightness */</span></pre>
+                </div>
+            </div>
+
+            <!-- unit 3.3 -->
+            <div class="unitBlock" id="s33">
+                
+            </div>
+
+
+            
+
 
     </main>
 </body>
