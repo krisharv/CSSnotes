@@ -43,17 +43,18 @@
 
         <div class="heroBanner">
             <div class="bgHugeText">CSS</div>
-            <div class="heroSubtag">Exam Ready Notes</div>
+            <div class="heroSubtag">Exam-Ready Notes</div>
             <h2><span>CSS</span><br>Complete Guide</h2>
             <div class="pillRow">
                 <div class="infoPill">Unit <span>3.1 → 3.4</span></div>
-                <div class="infoPill">class <span>11 FSWD</span></div>
+                <div class="infoPill">Class <span>11 FSWD</span></div>
                 <div class="infoPill">Topics <span>4 Units</span></div>
             </div>
         </div>
 
         <div class="pageBody">
 
+            <!-- ======= 3.1 ======= -->
             <div class="unitBlock" id="s31">
                 <div class="unitHdr">
                     <div class="unitNum">3.1</div>
@@ -250,7 +251,7 @@
                 </div>
             </div>
 
-            <!-- unit 3.2 -->
+            <!-- ======= 3.2 ======= -->
             <div class="unitBlock" id="s32">
                 <div class="unitHdr">
                     <div class="unitNum">3.2</div>
@@ -500,16 +501,247 @@
                 </div>
             </div>
 
-            <!-- unit 3.3 -->
+            <!-- ======= 3.3 ======= -->
             <div class="unitBlock" id="s33">
-                
-            </div>
+                <div class="unitHdr">
+                    <div class="unitNum">3.3</div>
+                    <div class="unitHdrText">
+                        <h2>Animations, Transitions &amp; Hover Effects</h2>
+                        <p>Bringing elements to life with CSS-only movement and interactivity</p>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>Hover Effects</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>The <strong><code>:hover</code> pseudo-class</strong> applies styles to an element when the
+                            user's mouse cursor is positioned over it. Hover effects are the simplest CSS interactivity
+                            — no JavaScript needed. Combined with <code>transition</code>, they create smooth,
+                            professional-looking animations on interaction.</p>
+                    </div>
+                    <pre><span class="sel">button</span> {
+  <span class="prp">background-color</span>: <span class="val">blue</span>;
+  <span class="prp">color</span>: <span class="val">white</span>;
+  <span class="prp">padding</span>: <span class="val">12px 24px</span>;
+  <span class="prp">border</span>: <span class="val">none</span>;
+  <span class="prp">cursor</span>: <span class="val">pointer</span>;
+}
+<span class="sel">button<span class="psd">:hover</span></span> {
+  <span class="prp">background-color</span>: <span class="val">darkblue</span>;
+  <span class="prp">transform</span>: <span class="val">scale(1.05)</span>;
+}
+
+<span class="cm">/* hover on links */</span>
+<span class="sel">a</span> { <span class="prp">color</span>: <span class="val">blue</span>; <span class="prp">text-decoration</span>: <span class="val">none</span>; }
+<span class="sel">a<span class="psd">:hover</span></span> { <span class="prp">color</span>: <span class="val">red</span>; <span class="prp">text-decoration</span>: <span class="val">underline</span>; }
+
+<span class="cm">/* hover to reveal child element */</span>
+<span class="sel">.card .overlay</span>       { <span class="prp">opacity</span>: <span class="val">0</span>; }
+<span class="sel">.card<span class="psd">:hover</span> .overlay</span> { <span class="prp">opacity</span>: <span class="val">1</span>; }</pre>
+                </div>
+
+                <div class="chunk">
+                    <h3>CSS Transitions</h3>
+                    <div class="defBox">
+                        <div class="defTag">Defination</div>
+                        <p>A <strong>CSS Transition</strong> smoothly animates the change from one CSS property value to
+                             another over a set duration. Without transition, style changes are instant with it, you get
+                             a <strong>smooth gradual change</strong>. The <code>transition</code> property takes: the 
+                            <strong>property to animate</strong>, the <strong>duration</strong>, and a  <strong>timing
+                                funtion</strong> ( how speed varies over time).
+                        </p>
+                    </div>
+                    <pre><span class="cm">/* Syntax: property duration timing delay */</span>
+<span class="sel">.button</span> { 
+  <span class="prp">background-color</span>: <span class="val">blue</span>;
+  <span class="prp">color</span>: <span class="val">white</span>;
+  <span class="prp">padding</span>: <span class="val">12px 28px</span>;
+  <span class="prp">border-radius</span>: <span class="val">6px</span>;
+  <span class="prp">transition</span>: <span class="val">background-color 0.3s ease</span>;
+}
+<span class="sel">.button<span class="psd">:hover</span></span> {
+  <span class="prp">background-color</span>: <span class="val">darkblue</span>; <span class="cm">/* smoothly fades over 0.3s */</span>
+}
+
+<span class="cm">/* Transition multiple properties */</span>
+<span class="sel">.card</span> {
+  <span class="prp">transform</span>: <span class="val">translateY(0)</span>;
+  <span class="prp">box-shadow</span>: <span class="val">0 2px 8px rgba(0, 0, 0, 0.1)</span>;
+  <span class="prp">transition</span>: <span class="val">transform 0.3s ease, box-shadow 0.3s ease</span>;
+}
+<span class="sel">.card<spam class="psd">:hover</spam></span> { 
+  <span class="prp">transform</span>: <span class="val">translateY(-8px)</span>;
+  <span class="prp">box-shadow</span>: <span class="val">0 16px 40px rgba(0, 0, 0, 0.2)</span>;
+}
+
+<span class="cm">/* transition all at once */</span>
+<span class="sel">.box</span> { <span class="prp">transition</span>: <span class="val">all 0.4s ease-in-out</span>; }</pre>
+
+                   <div class="tblWrap">
+                      <table>
+                        <tr>
+                            <th>Timing Function</th>
+                            <th>Effect</th>
+                        </tr>
+                        <tr>
+                            <td><code>ease</code></td>
+                            <td>start slow, speeds up, slows down - default, most natural</td>
+                        </tr>
+                        <tr>
+                            <td><code>linear</code></td>
+                            <td>Constant speed throughout</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-in</code></td>
+                            <td>Starts slow, ends fast</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-out</code></td>
+                            <td>Starts fast, end slow - great for exit animations</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-in-out</code></td>
+                            <td>Slow start AND slow end - very smooth, professional feel </td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>CSS Animations with @keyframes</h3>
+                    <div class="defBox">
+                        <div class="defTag">Defination</div>
+                        <p>CSS <strong>animations</strong> let elements change style gradually over multiple steps -
+                            unlike transitions which only go A -> B, animations can go A -> B -> c -> D. You define steps
+                            using <strong><code>@keyframes</code></strong> (0% = start, 100% = end, or any percentage in 
+                            between). Then apply it to an element using the <code>animation</code> property.</p>
+                    </div>
+                    <pre><span class="cm">/* Step 1: Define animation steps with @keyframes */</span>
+<span class="anim">@keyframes</span> <span class="sel">fadeIn</span> { 
+  <span class="val">0%</span>   { <span class="prp">opacity</span>: <span class="val">0</span>; <span class="prp">transform</span> }
+  <span class="val">100%</span>   { <span class="prp">opacity</span>: <span class="val">1</span>; <span class="prp">transform</span> }
+ }
+
+ <span class="cm">/* Step 2: Apply to an element */</span>
+ <span class="cm">/* animation: name duration timing delay iteration fill-mode */</span>
+ <span class="sel">.hero-text</span> {
+   <span class="prp">animation</span>: <span class="val">fadeIn 1s ease-out forwards</span>
+ }
+
+ <span class="cm">/* Spinning loader */</span>
+ <span class="anim">@keyframes</span> <span class="sel">spin</span> {
+   <span class="val">from</span> { <span class="prp">transform</span>: <span class="val">rotate(0deg)</span>; }
+   <span class="val">to</span> { <span class="prp">transform</span>: <span class="val">rotate(360deg)</span>; }
+ }
+ <span class="sel">.spinner</span> { <span class="prp">animation</span>: <span class="val">spin 1s linear infinite</span>; }
+ 
+ <span class="cm">/* Color pulse - multi-step */</span>
+ <span class="anim">@keyframe</span> <span class="sel">pulse</span> {
+   <span class="val">0%</span> { <span class="prp">background-color</span>: <span class="val">red</span>; <span class="prp">transform</span>: <span class="val">scale(1)</span>; }
+   <span class="val">50%</span> { <span class="prp">background-color</span>: <span class="val">orange</span>; <span class="prp">transform</span>: <span class="val">scale(1.1)</span>; }
+   <span class="val">100%</span> { <span class="prp">background-color</span>: <span class="val">red</span>; <span class="prp">transform</span>: <span class="val">scale(1)</span>; }
+ }
+ <span class="sel">.alert</span> { <span class="prp">animation</span>: <span class="val">pulse 2s ease-in-out infinite</span>; }
+
+ <span class="cm">/* Slide in from left */</span>
+ <span class="anim">@keyframes</span> <span class="sel">slideIn</span> { 
+    <span class="val">from</span> { <span class="prp">transform</span>: <span class="val">translateX(-100%)</span>; <span class="prp">opacity</span>: <span class="val">0</span>; }
+    <span class="val">to</span>   { <span class="prp">transform</span>: <span class="val">translateX(0)</span>; <span class="prp">opacity</span>: <span class="val">1</span>; }
+}
+<span class="sel">.menu</span> { <span class="prp">animation</span>: <span class="val">slideIn 0.5s ease-out</span>; }</pre>
+
+                   <div class="tblWrap">
+                    <table>
+                        <tr>
+                            <th>animation-* property</th>
+                            <th>Values</th>
+                            <th>Meaning</th>
+                        </tr>
+                        <tr>
+                            <td><code>animation-name</code></td>
+                            <td>@keyframes name</td>
+                            <td>which animation to run</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-duration</code></td>
+                            <td><code>Is</code>, <code>500ms</code></td>
+                            <td>How long one cycle takes</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-iteration-count</code></td>
+                            <td><code>1</code>, <code>3</code>, <code>infinite</code></td>
+                            <td>How many times to repeat</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-direction</code></td>
+                            <td><code>normal</code>, <code>reverse</code>, <code>alternate</code></td>
+                            <td>Direction of playback</td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-delay</code></td>
+                            <td><code>0.5s</code>, <code>2s</code></td>
+                            <td>Wait before starting</td>
+                        </tr>
+                    </table>
+                   </div>
+
+                   <h4>Transition vs Animation - key Difference</h4>
+                   <div class="sideBySide">
+                       <div class="sideBox greenBox">
+                           <div class="sideBoxLabel">Transition</div> 
+                           <pre><span class="cm">/* Needs a TRIGGER
+(hover, focus, JS class)
+only A -> B
+Simpler */</span>
+
+<span class="sel">.btn</span> { 
+  <span class="prp">transition</span>: <span class="val">color 0.3 ease</span>;  
+}
+<span class="sel">.btn <span class="psd">:hover</span></span> { 
+  <span class="prp">color</span>: <span class="val">red</span>;
+}</pre>
+                       </div>
+                       <div class="sideBox yellowBox">
+                           <div class="sideBoxLabel">Animation</div> 
+                           <pre><span class="cm">/* Runs AUTOMATICALLY
+NO trigger needed
+A -> B -> C -> D... 
+More powerful */</span>
+
+<span class="anim">@keyframe</span> blink {
+  <span class="val">0%,100%</span> { <span class="prp">opacity</span>:<span class="val">1</span> }
+  <span class="val">50%</span>     { <span class="prp">opacity</span>:<span class="val">0</span> }
+}
+<span class="sel">.dot</span> {
+  <span class="prp">animation</span>: <span class="val">blink is infinite</span>;
+}</pre>
+                       </div>
+                   </div>
+
+                   <h4>The transform property</h4>
+                   <pre><span class="sel">.element</span> {
+<span class="prp">transform</span>: <span class="val">translateX(50px)</span>;   <span class="cm">/* move right 50px */</span> 
+<span class="prp">transform</span>: <span class="val">translateY(-20px)</span>;  <span class="cm">/* move up 20px */</span>
+<span class="prp">transform</span>: <span class="val">scale(1.5)</span>;         <span class="cm">/* 150% of original size */</span>
+<span class="prp">transform</span>: <span class="val">scale(0.8)</span>;         <span class="cm">/* shrink to 80% */</span>
+<span class="prp">transform</span>: <span class="val">rotate(45deg)</span>;      <span class="cm">/* rotate 45deg clockwise */</span>
+<span class="prp">transform</span>: <span class="val">rotate(-90deg)</span>;     <span class="cm">/* anti-clockwise */</span>
+<span class="prp">transform</span>: <span class="val">skewX(10deg)</span>;  
+
+<span class="cm">/* you can combine them too */</span>
+<span class="prp">transform</span>: <span class="val">translateY(-5px) scale(1.02) rotate(3deg)</span>;
+} </pre>
+                </div>
 
 
-            
 
 
-    </main>
+
+
+
+</main>
+
 </body>
 
 </html>
