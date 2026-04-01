@@ -17,8 +17,11 @@ Clone the project:
 git clone https://github.com/krisharv/CSSnotes
 
 Open the project:
-cd css-notes-website
+
+cd CSS
+
 Run:
+
 Open index.html in your browser
 
 
