@@ -54,7 +54,7 @@
 
         <div class="pageBody">
 
-            <!-- ======= 3.1 ======= -->
+            <!-- unit 3.1 -->
             <div class="unitBlock" id="s31">
                 <div class="unitHdr">
                     <div class="unitNum">3.1</div>
@@ -251,7 +251,7 @@
                 </div>
             </div>
 
-            <!-- ======= 3.2 ======= -->
+            <!-- unit 3.2 -->
             <div class="unitBlock" id="s32">
                 <div class="unitHdr">
                     <div class="unitNum">3.2</div>
@@ -501,7 +501,7 @@
                 </div>
             </div>
 
-            <!-- ======= 3.3 ======= -->
+            <!-- unit 3.3 -->
             <div class="unitBlock" id="s33">
                 <div class="unitHdr">
                     <div class="unitNum">3.3</div>
@@ -733,14 +733,363 @@ More powerful */</span>
 <span class="prp">transform</span>: <span class="val">translateY(-5px) scale(1.02) rotate(3deg)</span>;
 } </pre>
                 </div>
+            </div>
 
+            <!-- unit 3.4 -->
+                        <div class="unitBlock" id="s34">
+                <div class="unitHdr">
+                    <div class="unitNum">3.4</div>
+                    <div class="unitHdrText">
+                        <h2>Layouts: Position, Flexbox, Grid &amp; Responsive Design</h2>
+                        <p>Building modern, responsive page layouts with CSS's most powerful tools</p>
+                    </div>
+                </div>
 
+                <div class="chunk">
+                    <h3>CSS Position Property</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>The <strong><code>position</code></strong> property controls how an element is placed in the
+                            document flow. By default all elements are <code>static</code>. Changing position lets you
+                            use <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> offsets to
+                            precisely place elements, and controls whether they stay fixed on screen or scroll with the
+                            page.</p>
+                    </div>
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>Value</th>
+                                <th>Meaning</th>
+                                <th>Behaviour</th>
+                            </tr>
+                            <tr>
+                                <td><code>static</code></td>
+                                <td>Default — normal document flow</td>
+                                <td>top/left/etc. have no effect</td>
+                            </tr>
+                            <tr>
+                                <td><code>relative</code></td>
+                                <td>Moves from its own normal position</td>
+                                <td>Still occupies original space; offsets applied from there</td>
+                            </tr>
+                            <tr>
+                                <td><code>absolute</code></td>
+                                <td>Removed from flow; positioned inside nearest positioned ancestor</td>
+                                <td>Other elements ignore it; placed exactly where you say</td>
+                            </tr>
+                            <tr>
+                                <td><code>fixed</code></td>
+                                <td>Positioned relative to the viewport</td>
+                                <td>Stays in place even when scrolling — navbars, chat buttons</td>
+                            </tr>
+                            <tr>
+                                <td><code>sticky</code></td>
+                                <td>Normal until scroll threshold, then acts like fixed</td>
+                                <td>Used for sticky headers that stick as you scroll</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <pre><span class="cm">/* relative */</span>
+<span class="sel">.box</span> {
+  <span class="prp">position</span>: <span class="val">relative</span>;
+  <span class="prp">top</span>: <span class="val">20px</span>;   <span class="cm">/* moves down 20px from where it would normally be */</span>
+  <span class="prp">left</span>: <span class="val">10px</span>;
+}
 
+<span class="cm">/* absolute — needs a relative parent to anchor to */</span>
+<span class="sel">.parent</span> { <span class="prp">position</span>: <span class="val">relative</span>; <span class="prp">width</span>: <span class="val">400px</span>; <span class="prp">height</span>: <span class="val">300px</span>; }
+<span class="sel">.badge</span> {
+  <span class="prp">position</span>: <span class="val">absolute</span>;
+  <span class="prp">top</span>: <span class="val">10px</span>; <span class="prp">right</span>: <span class="val">10px</span>;
+  <span class="prp">background</span>: <span class="val">red</span>; <span class="prp">color</span>: <span class="val">white</span>;
+}
 
+<span class="cm">/* fixed navbar */</span>
+<span class="sel">.navbar</span> {
+  <span class="prp">position</span>: <span class="val">fixed</span>;
+  <span class="prp">top</span>: <span class="val">0</span>; <span class="prp">left</span>: <span class="val">0</span>; <span class="prp">right</span>: <span class="val">0</span>;
+  <span class="prp">background</span>: <span class="val">white</span>;
+  <span class="prp">z-index</span>: <span class="val">1000</span>;
+}
 
+<span class="cm">/* sticky */</span>
+<span class="sel">.section-header</span> {
+  <span class="prp">position</span>: <span class="val">sticky</span>;
+  <span class="prp">top</span>: <span class="val">0</span>;
+}</pre>
+                    <div class="alertBox isInfo">
+                        <span class="ico">💡</span>
+                        <span><strong>z-index</strong> controls which overlapping element is in front. Higher number =
+                            on top. Only works on elements with a position value other than <code>static</code>. Common
+                            pattern: navbars use <code>z-index: 1000</code> to stay on top of everything.</span>
+                    </div>
+                </div>
 
+                <div class="chunk">
+                    <h3>Flexbox — One-Dimensional Layout</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>Flexbox (Flexible Box Layout)</strong> is a CSS layout mode that arranges elements
+                            <strong>in a single row or column</strong> and distributes space between them. It is the
+                            best tool for <strong>aligning items</strong> — both horizontally and vertically — and for
+                            navbars, card rows, and centred content. Apply <code>display: flex</code> to a
+                            <strong>container</strong> and its children become <strong>flex items</strong>.
+                        </p>
+                    </div>
+                    <pre><span class="sel">.container</span> {
+  <span class="prp">display</span>: <span class="val">flex</span>;
 
-</main>
+  <span class="prp">flex-direction</span>: <span class="val">row</span>;         <span class="cm">/* row (default) | row-reverse | column | column-reverse */</span>
+
+  <span class="cm">/* Alignment along main axis (horizontal when flex-direction: row) */</span>
+  <span class="prp">justify-content</span>: <span class="val">center</span>;     <span class="cm">/* flex-start | flex-end | center | space-between | space-around | space-evenly */</span>
+
+  <span class="cm">/* Alignment along cross axis (vertical when flex-direction: row) */</span>
+  <span class="prp">align-items</span>: <span class="val">center</span>;         <span class="cm">/* flex-start | flex-end | center | stretch | baseline */</span>
+
+  <span class="prp">flex-wrap</span>: <span class="val">wrap</span>;
+  <span class="prp">gap</span>: <span class="val">16px</span>;
+}
+
+<span class="cm">/* Perfect centering */</span>
+<span class="sel">.centered</span> {
+  <span class="prp">display</span>: <span class="val">flex</span>;
+  <span class="prp">justify-content</span>: <span class="val">center</span>;
+  <span class="prp">align-items</span>: <span class="val">center</span>;
+  <span class="prp">height</span>: <span class="val">100vh</span>;
+}
+
+<span class="cm">/* Flex item properties */</span>
+<span class="sel">.item</span> {
+  <span class="prp">flex</span>: <span class="val">1</span>;           <span class="cm">/* grow to fill space equally */</span>
+  <span class="prp">flex-grow</span>: <span class="val">2</span>;      <span class="cm">/* grow twice as much */</span>
+  <span class="prp">flex-shrink</span>: <span class="val">0</span>;    <span class="cm">/* dont shrink */</span>
+  <span class="prp">flex-basis</span>: <span class="val">200px</span>; <span class="cm">/* starting size */</span>
+  <span class="prp">align-self</span>: <span class="val">flex-end</span>;
+}
+
+<span class="cm">/* Navbar example */</span>
+<span class="sel">.navbar</span> {
+  <span class="prp">display</span>: <span class="val">flex</span>;
+  <span class="prp">justify-content</span>: <span class="val">space-between</span>;
+  <span class="prp">align-items</span>: <span class="val">center</span>;
+  <span class="prp">padding</span>: <span class="val">16px 32px</span>;
+}</pre>
+
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>justify-content value</th>
+                                <th>Effect</th>
+                            </tr>
+                            <tr>
+                                <td><code>flex-start</code></td>
+                                <td>Items packed to the start (left)</td>
+                            </tr>
+                            <tr>
+                                <td><code>flex-end</code></td>
+                                <td>Items packed to the end (right)</td>
+                            </tr>
+                            <tr>
+                                <td><code>center</code></td>
+                                <td>Items centred</td>
+                            </tr>
+                            <tr>
+                                <td><code>space-between</code></td>
+                                <td>First item at start, last at end, equal gaps between</td>
+                            </tr>
+                            <tr>
+                                <td><code>space-around</code></td>
+                                <td>Equal space on both sides of each item</td>
+                            </tr>
+                            <tr>
+                                <td><code>space-evenly</code></td>
+                                <td>Exactly equal space everywhere including edges</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>CSS Grid — Two-Dimensional Layout</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>CSS Grid</strong> is a <strong>two-dimensional layout system</strong> — it controls
+                            both rows AND columns simultaneously. While Flexbox handles one direction at a time, Grid
+                            lets you build complex page layouts with header, sidebar, main content, and footer all in
+                            CSS. Apply <code>display: grid</code> to a container and define columns/rows with
+                            <code>grid-template-columns</code> and <code>grid-template-rows</code>.
+                        </p>
+                    </div>
+                    <pre><span class="sel">.grid</span> {
+  <span class="prp">display</span>: <span class="val">grid</span>;
+
+  <span class="prp">grid-template-columns</span>: <span class="val">200px auto 200px</span>;   <span class="cm">/* fixed, flexible, fixed */</span>
+  <span class="prp">grid-template-columns</span>: <span class="val">1fr 2fr 1fr</span>;       <span class="cm">/* fr = fraction; middle is 2x */</span>
+  <span class="prp">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;   <span class="cm">/* 3 equal columns */</span>
+  <span class="prp">grid-template-columns</span>: <span class="val">repeat(4, 1fr)</span>;
+
+  <span class="prp">grid-template-rows</span>: <span class="val">80px auto 60px</span>;
+
+  <span class="prp">gap</span>: <span class="val">20px</span>;
+  <span class="prp">column-gap</span>: <span class="val">24px</span>;
+  <span class="prp">row-gap</span>: <span class="val">16px</span>;
+}
+
+<span class="cm">/* Items can span multiple columns/rows */</span>
+<span class="sel">.header</span> { <span class="prp">grid-column</span>: <span class="val">1 / 4</span>; }    <span class="cm">/* spans all 3 cols */</span>
+<span class="sel">.header</span> { <span class="prp">grid-column</span>: <span class="val">span 3</span>; }   <span class="cm">/* same thing */</span>
+<span class="sel">.sidebar</span> { <span class="prp">grid-row</span>: <span class="val">2 / 4</span>; }
+
+<span class="cm">/* Full page layout */</span>
+<span class="sel">.page</span> {
+  <span class="prp">display</span>: <span class="val">grid</span>;
+  <span class="prp">grid-template-columns</span>: <span class="val">250px 1fr</span>;
+  <span class="prp">grid-template-rows</span>: <span class="val">60px 1fr 50px</span>;
+  <span class="prp">min-height</span>: <span class="val">100vh</span>;
+}
+<span class="sel">.nav</span>    { <span class="prp">grid-column</span>: <span class="val">1 / 3</span>; }
+<span class="sel">.footer</span> { <span class="prp">grid-column</span>: <span class="val">1 / 3</span>; }</pre>
+
+                    <h4>Flexbox vs Grid</h4>
+                    <div class="sideBySide">
+                        <div class="sideBox greenBox">
+                            <div class="sideBoxLabel">Use Flexbox for…</div>
+                            <pre><span class="cm">/* 1D — a row OR a column:
+→ Navigation bars
+→ Button groups
+→ Centring single items
+→ Cards in a row */</span>
+
+<span class="sel">.navbar</span> {
+  <span class="prp">display</span>: <span class="val">flex</span>;
+  <span class="prp">justify-content</span>:
+    <span class="val">space-between</span>;
+  <span class="prp">align-items</span>: <span class="val">center</span>;
+}</pre>
+                        </div>
+                        <div class="sideBox yellowBox">
+                            <div class="sideBoxLabel">Use Grid for…</div>
+                            <pre><span class="cm">/* 2D — rows AND columns:
+→ Full page layouts
+→ Image galleries
+→ Dashboard panels
+→ Complex multi-area */</span>
+
+<span class="sel">.gallery</span> {
+  <span class="prp">display</span>: <span class="val">grid</span>;
+  <span class="prp">grid-template-columns</span>:
+    <span class="val">repeat(3, 1fr)</span>;
+  <span class="prp">gap</span>: <span class="val">16px</span>;
+}</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chunk">
+                    <h3>Responsive Web Design &amp; the Meta Tag</h3>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>Responsive Web Design (RWD)</strong> means building web pages that <strong>look good
+                                and work well on all screen sizes</strong> — desktop, tablet, and mobile. The page
+                            adapts its layout and styles based on the viewport (screen) width. Three key tools make this
+                            work: the <strong>viewport meta tag</strong>, <strong>CSS media queries</strong>, and
+                            <strong>flexible units</strong> like %, rem, vw, vh.
+                        </p>
+                    </div>
+
+                    <h4>The Viewport Meta Tag</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p>The <strong>viewport meta tag</strong> is placed in <code>&lt;head&gt;</code> and tells
+                            mobile browsers to use the <strong>actual device width</strong> instead of pretending the
+                            screen is 980px wide and zooming out. Without it, every responsive CSS you write will fail
+                            on mobile. This tag is <strong>required for every responsive website</strong>.</p>
+                    </div>
+                    <pre><span class="cm">&lt;!-- ALWAYS include this in &lt;head&gt; for responsive design --&gt;</span>
+<span class="tg">&lt;meta</span> <span class="at">name</span>=<span class="str">"viewport"</span> <span class="at">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span><span class="tg">&gt;</span>
+
+<span class="cm">/*
+  width=device-width   → use the real screen width
+  initial-scale=1.0    → don't zoom in or out on load
+*/</span></pre>
+
+                    <h4>Media Queries</h4>
+                    <div class="defBox">
+                        <div class="defTag">Definition</div>
+                        <p><strong>Media queries</strong> apply CSS rules <strong>only when certain conditions are
+                                true</strong> — usually screen width ranges. Using <code>@media (max-width: Npx)</code>
+                            applies styles only when the screen is narrower than N pixels, letting you change layout for
+                            tablets and phones.</p>
+                    </div>
+                    <pre><span class="cm">/* Base styles — desktop-first */</span>
+<span class="sel">.container</span> {
+  <span class="prp">display</span>: <span class="val">grid</span>;
+  <span class="prp">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;
+  <span class="prp">gap</span>: <span class="val">24px</span>;
+}
+
+<span class="cm">/* Tablet: screens ≤ 768px */</span>
+<span class="anim">@media</span> (<span class="prp">max-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prp">grid-template-columns</span>: <span class="val">repeat(2, 1fr)</span>;
+  }
+  <span class="sel">.hero h1</span> { <span class="prp">font-size</span>: <span class="val">32px</span>; }
+}
+
+<span class="cm">/* Mobile: screens ≤ 480px */</span>
+<span class="anim">@media</span> (<span class="prp">max-width</span>: <span class="val">480px</span>) {
+  <span class="sel">.container</span> {
+    <span class="prp">grid-template-columns</span>: <span class="val">1fr</span>;
+  }
+  <span class="sel">.sidebar</span> { <span class="prp">display</span>: <span class="val">none</span>; }
+}
+
+<span class="cm">/* Mobile-first (min-width) — modern approach */</span>
+<span class="sel">.nav</span> { <span class="prp">flex-direction</span>: <span class="val">column</span>; }
+<span class="anim">@media</span> (<span class="prp">min-width</span>: <span class="val">768px</span>) {
+  <span class="sel">.nav</span> { <span class="prp">flex-direction</span>: <span class="val">row</span>; }
+}</pre>
+
+                    <div class="tblWrap">
+                        <table>
+                            <tr>
+                                <th>Breakpoint</th>
+                                <th>Typical Width</th>
+                                <th>Device</th>
+                            </tr>
+                            <tr>
+                                <td>Mobile</td>
+                                <td><code>≤ 480px</code></td>
+                                <td>Phones</td>
+                            </tr>
+                            <tr>
+                                <td>Tablet</td>
+                                <td><code>≤ 768px</code></td>
+                                <td>Tablets, large phones</td>
+                            </tr>
+                            <tr>
+                                <td>Laptop</td>
+                                <td><code>≤ 1024px</code></td>
+                                <td>Small laptops</td>
+                            </tr>
+                            <tr>
+                                <td>Desktop</td>
+                                <td><code>&gt; 1024px</code></td>
+                                <td>Desktops, large monitors</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="alertBox isSuccess">
+                        <span class="ico">📱</span>
+                        <span><strong>Mobile-first</strong> is the modern industry standard. Write your base CSS for
+                            mobile screens, then add <code>min-width</code> media queries for larger screens. Google
+                            indexes mobile versions of sites first (mobile-first indexing).</span>
+                    </div>
+                </div>
+            </div>
+ </main>
+ <button id="goTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ TOP</button>
 
 </body>
 
